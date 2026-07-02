@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python -c \"import pypdf; r=pypdf.PdfReader\\('건축설계7 포트폴리오_2173018 이지연.pdf'\\); print\\('pages',len\\(r.pages\\)\\); [print\\('---p',i+1,'---',\\(p.extract_text\\(\\) or ''\\).strip\\(\\)[:400]\\) for i,p in enumerate\\(r.pages[:37]\\)]\")",
+      "Bash(pip install *)",
+      "Bash(python -c 'import pypdf; r=pypdf.PdfReader\\('\\\\''건축설계7 포트폴리오_2173018 이지연.pdf'\\\\''\\); print\\('\\\\''pages'\\\\'',len\\(r.pages\\)\\); *)",
+      "Bash(python -c ' *)",
+      "Bash(npm install *)",
+      "Bash(npm run *)",
+      "Bash(python -)"
+    ]
+  }
+}

@@ -1,0 +1,75 @@
+@import "tailwindcss";
+
+@theme {
+  --color-paper: #f7f1ef;
+  --color-blush: #f4e8e6;
+  --color-surface: #fffdfc;
+  --color-ink: #191716;
+  --color-muted: #706a67;
+  --color-line: rgba(25, 23, 22, 0.14);
+  --color-accent: #e99bad;
+  --color-accent-soft: #f5cbd4;
+  --color-sage: #8d9b7a;
+
+  --font-serif: var(--font-cormorant), var(--font-noto-serif-kr), "Times New Roman", serif;
+  --font-sans: var(--font-inter), var(--font-noto-sans-kr), "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+}
+
+:root {
+  --bg: #f7f1ef;
+  --bg-warm: #f4e8e6;
+  --surface: #fffdfc;
+  --text: #191716;
+  --muted: #706a67;
+  --line: rgba(25, 23, 22, 0.14);
+  --accent: #e99bad;
+  --accent-soft: #f5cbd4;
+  --green: #8d9b7a;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+html {
+  scroll-padding-top: 5rem;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background-color: var(--accent-soft);
+  color: var(--text);
+}
+
+/* Thin, quiet scrollbar for horizontal drawing viewers */
+.drawing-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent-soft) transparent;
+}
+.drawing-scroll::-webkit-scrollbar {
+  height: 6px;
+}
+.drawing-scroll::-webkit-scrollbar-thumb {
+  background: var(--accent-soft);
+  border-radius: 3px;
+}
+.drawing-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Invisible scroll for the header nav on small screens */
+.nav-scroll {
+  scrollbar-width: none;
+}
+.nav-scroll::-webkit-scrollbar {
+  display: none;
+}
