@@ -69,14 +69,14 @@ export default function Home() {
 
       {/* 02 — held back to eight columns, caption in the margin. */}
       <section className="page grid12 mt-24 md:mt-40">
-        <div className="col-span-12 md:col-span-3 md:pt-2">
+        <div className="col-span-12 md:col-span-4 md:pt-2 lg:col-span-3">
           <Caption project={silver} n={2} />
           <p className="mt-4 max-w-[var(--measure)] text-[0.9375rem] leading-[1.7] text-muted">
             {silver.summary}
           </p>
         </div>
-        <div className="col-span-12 mt-6 md:col-span-8 md:col-start-5 md:mt-0">
-          <HomeImage media={silver.hero!} sizes="(min-width: 768px) 66vw, 100vw" />
+        <div className="col-span-12 mt-6 md:col-span-7 md:col-start-6 md:mt-0 lg:col-span-8 lg:col-start-5">
+          <HomeImage media={silver.hero!} sizes="(min-width: 768px) 62vw, 100vw" />
         </div>
       </section>
 
@@ -95,10 +95,10 @@ export default function Home() {
 
       {/* 04 — the square board sits left, its caption in the right margin. */}
       <section className="page grid12 mt-24 md:mt-40">
-        <div className="col-span-12 md:col-span-7">
-          <HomeImage media={wave.hero!} sizes="(min-width: 768px) 58vw, 100vw" />
+        <div className="col-span-12 md:col-span-6 lg:col-span-7">
+          <HomeImage media={wave.hero!} sizes="(min-width: 768px) 55vw, 100vw" />
         </div>
-        <div className="col-span-12 mt-6 self-center md:col-span-4 md:col-start-9 md:mt-0">
+        <div className="col-span-12 mt-6 self-center md:col-span-5 md:col-start-8 md:mt-0 lg:col-span-4 lg:col-start-9">
           <Caption project={wave} n={4} />
           <p className="mt-4 max-w-[var(--measure)] text-[0.9375rem] leading-[1.7] text-muted">
             {wave.summary}
@@ -108,14 +108,14 @@ export default function Home() {
 
       {/* 05 — the competition board, contained. */}
       <section className="page grid12 mt-24 md:mt-40">
-        <div className="col-span-12 md:col-span-3 md:pt-2">
+        <div className="col-span-12 md:col-span-4 md:pt-2 lg:col-span-3">
           <Caption project={forest} n={5} />
           <p className="mt-4 max-w-[var(--measure)] text-[0.9375rem] leading-[1.7] text-muted">
             {forest.summary}
           </p>
         </div>
-        <div className="col-span-12 mt-6 md:col-span-9 md:mt-0">
-          <HomeImage media={forest.hero!} sizes="(min-width: 768px) 72vw, 100vw" />
+        <div className="col-span-12 mt-6 md:col-span-8 md:col-start-5 md:mt-0 lg:col-span-9 lg:col-start-4">
+          <HomeImage media={forest.hero!} sizes="(min-width: 768px) 68vw, 100vw" />
         </div>
       </section>
 

@@ -22,7 +22,7 @@ function Row({
         onMouseLeave={() => onHover(null)}
         onFocus={() => onHover(project)}
         onBlur={() => onHover(null)}
-        className="group grid grid-cols-[2.25rem_1fr] items-baseline gap-x-3 py-4 sm:grid-cols-[2.25rem_1fr_auto] md:py-5"
+        className="group grid grid-cols-[2.25rem_minmax(0,1fr)] items-baseline gap-x-3 py-4 md:grid-cols-[2.25rem_minmax(0,1fr)_auto] md:py-5"
       >
         <span className="label text-faint">{String(n).padStart(2, "0")}</span>
         <span className="min-w-0">
@@ -32,13 +32,13 @@ function Row({
           {project.titleKo ? (
             <span className="label mt-1 block text-faint">{project.titleKo}</span>
           ) : null}
-          <span className="label mt-1.5 block text-muted sm:hidden">
+          <span className="label mt-1.5 block text-muted md:hidden">
             {project.category}
             {project.location ? ` · ${project.location}` : ""}
             {project.year ? ` · ${project.year}` : ""}
           </span>
         </span>
-        <span className="label hidden shrink-0 text-muted sm:block sm:text-right">
+        <span className="label hidden shrink-0 text-right text-muted md:block">
           {project.category}
           {project.location ? ` · ${project.location}` : ""}
           {project.year ? (
@@ -51,10 +51,11 @@ function Row({
         </span>
       </Link>
 
-      {/* Small screens get a contained thumbnail — there is no hover to rely
-          on, but a full-width image per row would destroy the index density. */}
+      {/* Narrower screens get a contained thumbnail — there is no preview
+          column to rely on, and a full-width image per row would destroy the
+          density that makes this an index. */}
       {project.hero ? (
-        <Link href={`/work/${project.slug}`} className="mb-4 block md:hidden" tabIndex={-1}>
+        <Link href={`/work/${project.slug}`} className="mb-4 block xl:hidden" tabIndex={-1}>
           <Image
             src={project.hero.src}
             alt=""
@@ -82,7 +83,7 @@ export default function WorkIndex({
 
   return (
     <div className="grid12">
-      <div className="col-span-12 md:col-span-7">
+      <div className="col-span-12 xl:col-span-7">
         <h2 className="label border-t border-line-strong pt-3 text-ink">Selected Work</h2>
         <ol className="mt-2">
           {selected.map((p, i) => (
@@ -101,8 +102,10 @@ export default function WorkIndex({
         </ol>
       </div>
 
-      {/* Desktop preview — follows the row under the cursor. */}
-      <div className="col-span-4 col-start-9 hidden md:block">
+      {/* Wide-screen preview — follows the row under the cursor. Below 1280
+          the list needs the full width, so each row carries its own
+          thumbnail instead. */}
+      <div className="col-span-4 col-start-9 hidden xl:block">
         <div className="sticky top-24">
           {shown?.hero ? (
             <>
