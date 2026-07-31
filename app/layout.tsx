@@ -1,57 +1,66 @@
 import type { Metadata } from "next";
-import {
-  Cormorant_Garamond,
-  Inter,
-  Noto_Sans_KR,
-  Noto_Serif_KR,
-} from "next/font/google";
+import { IBM_Plex_Sans, IBM_Plex_Sans_KR } from "next/font/google";
+import SiteHeader from "@/components/SiteHeader";
+import SiteFooter from "@/components/SiteFooter";
+import { site } from "@/data/site";
 import "./globals.css";
 
-const cormorant = Cormorant_Garamond({
-  subsets: ["latin"],
-  weight: ["400", "500", "600"],
-  style: ["normal", "italic"],
-  variable: "--font-cormorant",
-  display: "swap",
-});
-
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-  display: "swap",
-});
-
-const notoSerifKr = Noto_Serif_KR({
-  subsets: ["latin"],
-  weight: ["400", "600"],
-  variable: "--font-noto-serif-kr",
-  display: "swap",
-});
-
-const notoSansKr = Noto_Sans_KR({
+/*
+  One family across both scripts. IBM Plex Sans carries the technical,
+  drawing-label register of the boards and has a matching Korean cut, so
+  Korean titles set alongside English without a second typeface.
+*/
+const plex = IBM_Plex_Sans({
   subsets: ["latin"],
   weight: ["400", "500"],
-  variable: "--font-noto-sans-kr",
+  variable: "--font-plex-latin",
+  display: "swap",
+});
+
+const plexKr = IBM_Plex_Sans_KR({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  variable: "--font-plex-kr",
   display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "From Pause to Pulse",
-  description:
-    "Architecture graduation exhibition website for an active senior self-sustaining living platform in Cheongju, South Korea.",
+  metadataBase: new URL("https://jiyeonlee.work"),
+  title: {
+    default: `${site.name} — ${site.discipline}`,
+    template: `%s — ${site.name}`,
+  },
+  description: site.description,
+  openGraph: {
+    title: `${site.name} — ${site.discipline}`,
+    description: site.description,
+    type: "website",
+    images: ["/projects/from-pause-to-pulse/main-render.png"],
+  },
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html
-      lang="ko"
-      className={`${cormorant.variable} ${inter.variable} ${notoSerifKr.variable} ${notoSansKr.variable}`}
-    >
-      <body className="bg-paper text-ink font-sans">{children}</body>
+    <html lang="en" className={`${plex.variable} ${plexKr.variable}`}>
+      <body
+        style={
+          {
+            "--font-plex": "var(--font-plex-latin), var(--font-plex-kr)",
+          } as React.CSSProperties
+        }
+      >
+        <a
+          href="#main"
+          className="label sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50 focus:bg-ink focus:px-3 focus:py-2 focus:text-paper"
+        >
+          Skip to content
+        </a>
+        <SiteHeader />
+        <main id="main">{children}</main>
+        <SiteFooter />
+      </body>
     </html>
   );
 }

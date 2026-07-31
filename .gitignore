@@ -22,5 +22,10 @@ npm-debug.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# heavy source model (keep locally, do not push)
-source-assets/modeling.3dm
+# Original source material — kept locally, never published.
+# Contains the author's student ID (portfolio PDF) and a 145 MB Rhino model.
+# The web-optimized copies the site actually serves live in public/projects/.
+/source-assets/
+
+# Visual-review output
+/shots/

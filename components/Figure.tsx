@@ -1,91 +1,70 @@
+"use client";
+
 import Image from "next/image";
+import { useEffect } from "react";
+import { useDrawingViewer } from "./DrawingViewer";
+import Reveal from "./Reveal";
+import type { Media } from "@/data/types";
 
-type Plate = {
-  /** drawing number, e.g. "DWG 03" */
-  no: string;
-  title: string;
-  /** scale / sheet notation, e.g. "1:200 · A3" */
-  scale?: string;
-};
-
-type FigureProps = {
-  src: string;
-  alt: string;
-  width: number;
-  height: number;
-  caption?: string;
-  captionKo?: string;
-  className?: string;
-  imgClassName?: string;
-  sizes?: string;
-  priority?: boolean;
-  /** wrap the image on a white drawing sheet with a hairline border */
-  sheet?: boolean;
-  /** technical title block rendered inside the sheet, below the drawing */
-  plate?: Plate;
-};
+const enlargeable = (m: Media) =>
+  m.kind === "drawing" || m.kind === "diagram" || m.kind === "board";
 
 export default function Figure({
-  src,
-  alt,
-  width,
-  height,
-  caption,
-  captionKo,
-  className = "",
-  imgClassName = "",
+  media,
   sizes = "100vw",
   priority = false,
-  sheet = false,
-  plate,
-}: FigureProps) {
-  const onSheet = sheet || Boolean(plate);
+  className = "",
+  captionAlign = "start",
+}: {
+  media: Media;
+  sizes?: string;
+  priority?: boolean;
+  className?: string;
+  captionAlign?: "start" | "end";
+}) {
+  const viewer = useDrawingViewer();
+  const canEnlarge = enlargeable(media) && !!viewer;
+
+  useEffect(() => {
+    if (canEnlarge) viewer?.register(media);
+  }, [canEnlarge, viewer, media]);
+
+  const image = (
+    <Image
+      src={media.src}
+      alt={media.alt}
+      width={media.width}
+      height={media.height}
+      sizes={sizes}
+      priority={priority}
+      loading={priority ? undefined : "lazy"}
+      className="h-auto w-full"
+    />
+  );
 
   return (
     <figure className={className}>
-      <div
-        className={
-          onSheet ? "border border-line bg-surface p-3 sm:p-6" : undefined
-        }
-      >
-        <Image
-          src={src}
-          alt={alt}
-          width={width}
-          height={height}
-          sizes={sizes}
-          priority={priority}
-          className={`h-auto w-full ${imgClassName}`}
-        />
-        {plate && (
-          <div className="mt-3 flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1 border-t border-line pt-3 sm:mt-5 sm:pt-4">
-            <span className="text-[10px] uppercase tracking-[0.24em] text-muted">
-              <span className="text-accent">{plate.no}</span>
-              <span aria-hidden> — </span>
-              {plate.title}
-            </span>
-            {plate.scale && (
-              <span className="text-[10px] uppercase tracking-[0.24em] text-muted/70">
-                {plate.scale}
-              </span>
-            )}
-          </div>
+      <Reveal>
+        {canEnlarge ? (
+          <button
+            type="button"
+            onClick={() => viewer?.open(media.src)}
+            aria-label={`Enlarge — ${media.alt}`}
+            className="block w-full cursor-zoom-in bg-field p-3 sm:p-5 md:p-7"
+          >
+            {image}
+          </button>
+        ) : (
+          image
         )}
-      </div>
-      {(caption || captionKo) && (
-        <figcaption className="mt-4 max-w-2xl">
-          {caption && (
-            <span className="block text-sm leading-relaxed text-muted">
-              {caption}
-            </span>
-          )}
-          {captionKo && (
-            <span className="mt-1 block text-xs leading-relaxed text-muted/75">
-              {captionKo}
-            </span>
-          )}
+      </Reveal>
+      {media.caption ? (
+        <figcaption
+          className={`caption mt-2.5 text-muted ${captionAlign === "end" ? "text-right" : ""}`}
+        >
+          {media.caption}
         </figcaption>
-      )}
+      ) : null}
     </figure>
   );
 }
