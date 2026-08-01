@@ -71,9 +71,11 @@ export default function Figure({
       </Reveal>
       {media.caption || register ? (
         <figcaption
-          className={`mt-2.5 flex gap-x-4 gap-y-1 ${
-            captionAlign === "end" ? "flex-row-reverse" : ""
-          } ${register ? "flex-wrap justify-between" : ""}`}
+          className={`mt-2.5 flex flex-wrap gap-x-4 gap-y-1 ${
+            /* The register only sits opposite a caption; on its own it takes
+               the caption's place rather than floating off at the far edge. */
+            media.caption ? "justify-between" : ""
+          } ${captionAlign === "end" ? "flex-row-reverse" : ""}`}
         >
           {media.caption ? (
             <span
@@ -81,9 +83,7 @@ export default function Figure({
             >
               {media.caption}
             </span>
-          ) : (
-            <span />
-          )}
+          ) : null}
           {register ? (
             <span className="register mt-px text-faint">{register}</span>
           ) : null}

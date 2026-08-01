@@ -270,6 +270,7 @@ export const greenLighthouseStudy: Project = {
     `${G}/board-1.jpg`,
     "board",
     "Analysis board on the Green Lighthouse in Copenhagen: internal climate charts and U-value tables, an e-stack ventilation description, a biomass fuel pie chart and room temperature graphs, around a cutaway section showing hybrid ventilation, solar heating, radiator floor and surplus heat storage.",
+    "Systems analysis, part one",
   ),
   sections: [
     {

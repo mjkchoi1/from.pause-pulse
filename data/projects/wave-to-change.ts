@@ -27,6 +27,7 @@ export const waveToChange: Project = {
     `${P}/main-board.jpg`,
     "board",
     "Presentation image in ink-wash style: the white ribboned bridge winding across a pale river between mountains, with figures in hanbok walking its surfaces, birds overhead and blossom at the edges.",
+    "The bridge read as landscape rather than infrastructure",
   ),
   sections: [
     {

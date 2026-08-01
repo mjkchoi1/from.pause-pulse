@@ -26,6 +26,7 @@ export const fourRest: Project = {
     `${P}/board-concept.jpg`,
     "board",
     "Competition concept board: the four-part acrostic Urban, Carbon, Life, Area leading to a carbon-neutral diagram, a net-zero cycle, and species tables pairing each kind of rest with rose, lily tree, cherry blossom, pine, magnolia, willow and silk tree.",
+    "Concept — four readings of rest, and the planting that follows from them",
   ),
   sections: [
     {
