@@ -19,6 +19,7 @@
   --color-line-strong: #14140f;
 
   --font-sans: var(--font-plex), "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  --font-mono: var(--font-plex-mono), ui-monospace, monospace;
 
   --text-label: 0.6875rem;
 }
@@ -85,6 +86,35 @@ body {
   line-height: 1.45;
   letter-spacing: 0.005em;
   font-variant-numeric: tabular-nums;
+}
+
+/*
+  Drawing data. Set in the monospaced cut so project data, years and index
+  numbers align in a column the way dimension strings do on a drawing.
+*/
+.data {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.005em;
+}
+
+/*
+  The figure register — the signature of the set.
+
+  Every technical figure is marked with the kind of thing it is, so a reader
+  can tell a measured drawing from an analytical diagram from a presentation
+  board without having to interpret the image first. It is shown only on
+  material that is enlargeable, so the mark doubles as the affordance: if a
+  figure carries a register, it opens.
+*/
+.register {
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  line-height: 1.3;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
 }
 
 .prose-arch p {

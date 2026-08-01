@@ -9,6 +9,16 @@ import type { Media } from "@/data/types";
 const enlargeable = (m: Media) =>
   m.kind === "drawing" || m.kind === "diagram" || m.kind === "board";
 
+/*
+  What the register says. Renders and photographs are left unmarked — nobody
+  mistakes a render for a measured drawing, and marking them would be noise.
+*/
+const REGISTER: Partial<Record<Media["kind"], string>> = {
+  drawing: "Drawing",
+  diagram: "Diagram",
+  board: "Sheet",
+};
+
 export default function Figure({
   media,
   sizes = "100vw",
@@ -24,6 +34,7 @@ export default function Figure({
 }) {
   const viewer = useDrawingViewer();
   const canEnlarge = enlargeable(media) && !!viewer;
+  const register = canEnlarge ? REGISTER[media.kind] : undefined;
 
   useEffect(() => {
     if (canEnlarge) viewer?.register(media);
@@ -58,11 +69,24 @@ export default function Figure({
           image
         )}
       </Reveal>
-      {media.caption ? (
+      {media.caption || register ? (
         <figcaption
-          className={`caption mt-2.5 text-muted ${captionAlign === "end" ? "text-right" : ""}`}
+          className={`mt-2.5 flex gap-x-4 gap-y-1 ${
+            captionAlign === "end" ? "flex-row-reverse" : ""
+          } ${register ? "flex-wrap justify-between" : ""}`}
         >
-          {media.caption}
+          {media.caption ? (
+            <span
+              className={`caption text-muted ${captionAlign === "end" ? "text-right" : ""}`}
+            >
+              {media.caption}
+            </span>
+          ) : (
+            <span />
+          )}
+          {register ? (
+            <span className="register mt-px text-faint">{register}</span>
+          ) : null}
         </figcaption>
       ) : null}
     </figure>

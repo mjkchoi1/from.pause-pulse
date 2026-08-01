@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { IBM_Plex_Sans, IBM_Plex_Sans_KR } from "next/font/google";
+import { IBM_Plex_Mono, IBM_Plex_Sans, IBM_Plex_Sans_KR } from "next/font/google";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import { site } from "@/data/site";
@@ -24,6 +24,20 @@ const plexKr = IBM_Plex_Sans_KR({
   display: "swap",
 });
 
+/*
+  The utility face, used only where the page carries drawing data: the figure
+  register, project data values, years, and index numbering. Architectural
+  sheets annotate in a tabular, monospaced register — dimension strings, scales,
+  drawing numbers — so the data on the page is set the way the drawings are.
+  Same superfamily as the text face, so this is a second cut, not a second voice.
+*/
+const plexMono = IBM_Plex_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  variable: "--font-plex-mono",
+  display: "swap",
+});
+
 export const metadata: Metadata = {
   metadataBase: new URL("https://jiyeonlee.work"),
   title: {
@@ -43,7 +57,10 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${plex.variable} ${plexKr.variable}`}>
+    <html
+      lang="en"
+      className={`${plex.variable} ${plexKr.variable} ${plexMono.variable}`}
+    >
       <body
         style={
           {

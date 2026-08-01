@@ -24,7 +24,7 @@ function Row({
         onBlur={() => onHover(null)}
         className="group grid grid-cols-[2.25rem_minmax(0,1fr)] items-baseline gap-x-3 py-4 md:grid-cols-[2.25rem_minmax(0,1fr)_auto] md:py-5"
       >
-        <span className="label text-faint">{String(n).padStart(2, "0")}</span>
+        <span className="register text-faint">{String(n).padStart(2, "0")}</span>
         <span className="min-w-0">
           <span className="block text-[1.0625rem] leading-snug tracking-[-0.01em] md:text-xl">
             <span className="rule-link">{project.title}</span>
@@ -42,7 +42,7 @@ function Row({
           {project.category}
           {project.location ? ` · ${project.location}` : ""}
           {project.year ? (
-            <span className="ml-3 inline-block w-9 text-right tabular-nums text-faint">
+            <span className="data ml-3 inline-block w-9 text-right text-faint">
               {project.year}
             </span>
           ) : (

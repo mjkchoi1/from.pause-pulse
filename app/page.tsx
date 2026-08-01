@@ -16,7 +16,7 @@ function Caption({
 }) {
   return (
     <div className={align === "end" ? "text-right" : undefined}>
-      <span className="label text-faint">{String(n).padStart(2, "0")}</span>
+      <span className="register text-faint">{String(n).padStart(2, "0")}</span>
       <h3 className="mt-1.5 text-[1.375rem] leading-tight font-normal tracking-[-0.01em] md:text-[1.75rem]">
         <Link href={`/work/${project.slug}`} className="rule-link">
           {project.title}

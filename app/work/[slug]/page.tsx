@@ -58,7 +58,7 @@ export default async function ProjectPage({
             {project.meta.map((m) => (
               <div key={m.label} className="flex gap-3 border-t border-line py-1.5 first:border-t-0">
                 <dt className="label w-[5.5rem] shrink-0 pt-px text-faint">{m.label}</dt>
-                <dd className="caption text-muted">{m.value}</dd>
+                <dd className="data caption text-muted">{m.value}</dd>
               </div>
             ))}
           </dl>
@@ -103,7 +103,7 @@ export default async function ProjectPage({
                   className="grid grid-cols-1 gap-x-6 border-t border-line py-2.5 first:border-t-0 first:pt-0 sm:grid-cols-[9rem_1fr] md:first:border-t-0"
                 >
                   <dt className="label pt-0.5 text-faint">{c.label}</dt>
-                  <dd className="text-[0.9375rem] text-muted">{c.value}</dd>
+                  <dd className="data text-[0.875rem] leading-[1.55] text-muted">{c.value}</dd>
                 </div>
               ))}
             </dl>
