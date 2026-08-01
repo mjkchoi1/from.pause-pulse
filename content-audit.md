@@ -185,9 +185,16 @@ Figures in the essay: (1) adaptive reuse site map — author's QGIS overlay;
   header with the student ID; extraction yields the figure artwork alone at
   native resolution. Figure 5 is vector text and is rebuilt as an HTML table
   rather than an image. The PDF itself is not offered as a download.
-- Source credits printed in the essay are carried into the published captions.
-  Figures 2–4 and the Figure 6 base imagery are **third-party material** used
-  with attribution — see the note in the deliverables summary.
+- **Author decision (2026-07-31): a portfolio publishes only the author's own
+  work.** Figures 2, 3 and 4 are third-party photographs of the three
+  buildings — the author's contribution to them is compositing and annotation
+  only — so they are **not published**, and their assets and manifest entries
+  were removed.
+- Published: Figures 1, 6 and 7, which are the author's own cartography,
+  morphological analysis and data visualisation, together with Figure 5 as an
+  HTML table. Their underlying data sources (QGIS parcel data, Google Earth
+  imagery, U.S. Census Bureau figures) are credited in the project data block.
+  The three case studies are carried by the author's text alone.
 
 ## Project 8 — Green building case study (coursework)
 

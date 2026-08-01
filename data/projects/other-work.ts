@@ -153,16 +153,6 @@ export const newarkAdaptiveReuse: Project = {
       ],
     },
     {
-      type: "image",
-      size: "wide",
-      media: img(
-        `${N}/fig2-hahne-before-after.jpg`,
-        "board",
-        "Five-part before-and-after comparison of the Hahne & Co. building: a historic photograph of the corner elevation beside the restored brick façade today, an early postcard of the Grand Court beside the same skylit court after restoration, and the reinstated Hahne & Company signage on the brick.",
-        "Hahne & Co. before and after redevelopment. Source: Beyer Blinder Belle (2017); L+M Development Partners (2018)",
-      ),
-    },
-    {
       type: "text",
       heading: "Ironside Newark",
       ko: "Industry rewired",
@@ -172,16 +162,6 @@ export const newarkAdaptiveReuse: Project = {
       ],
     },
     {
-      type: "image",
-      size: "wide",
-      media: img(
-        `${N}/fig3-ironside-before-after.jpg`,
-        "board",
-        "Six-part before-and-after study of Ironside Newark: historic photographs of the Central Graphic Arts Building and Broad Street Station warehouse, an evening render of the converted block, the retained Newark Warehouse Co. lettering, the original rail-yard plan, and the new ground-floor plan with retail areas marked in pink.",
-        "Ironside Newark before and after redevelopment. Source: Ironside Newark",
-      ),
-    },
-    {
       type: "text",
       heading: "Ballantine Brewery",
       ko: "The people's memory",
@@ -189,16 +169,6 @@ export const newarkAdaptiveReuse: Project = {
         "Once one of the largest breweries in America, Ballantine closed in 1972, leaving massive red-brick structures behind. In the 1990s local artists began informally reoccupying the site, converting it into studios and performance halls.",
         "Without formal funding the project evolved organically into a community university — a living laboratory for local culture. It embodies bottom-up reuse, driven by community agency rather than market capital.",
       ],
-    },
-    {
-      type: "image",
-      size: "wide",
-      media: img(
-        `${N}/fig4-ballantine-before-after.jpg`,
-        "board",
-        "Three-part comparison of the Ballantine Brewery: an archival sheet of the original brewery buildings, a photograph of the surviving red-brick block on its corner site, and a render of the converted building with new glazed upper floors.",
-        "Ballantine Brewery before and after redevelopment. Source: Newark business & industry",
-      ),
     },
     {
       type: "list",
@@ -269,6 +239,11 @@ export const newarkAdaptiveReuse: Project = {
     { label: "Instructor", value: "Prof. Hyeri Park" },
     { label: "Institution", value: "Ewha Womans University" },
     { label: "Keywords", value: "Adaptive reuse · Local identity · Industrial heritage · Resilience" },
+    {
+      label: "Drawings",
+      value:
+        "All drawings by the author — mapping on QGIS parcel data, morphological analysis on Google Earth imagery, population charts on U.S. Census Bureau figures",
+    },
   ],
 };
 
