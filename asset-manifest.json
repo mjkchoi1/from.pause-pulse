@@ -83,6 +83,14 @@
     { "project": "seoul-family-house", "out": "board-process.jpg", "source": "대외활동/즐거운 나의 집(대학생코디네이터로서울시민집설계해주는프로젝트)/즐1.png", "kind": "board", "maxWidth": 2800 },
     { "project": "seoul-family-house", "out": "board-drawings.jpg", "source": "대외활동/즐거운 나의 집(대학생코디네이터로서울시민집설계해주는프로젝트)/즐2.png", "kind": "board", "maxWidth": 2800 },
 
+    { "project": "rebuilding-memory-newark", "out": "fig1-reuse-sites-map.jpg", "source": "4-2(25 Fall)/뉴왁 도시 레포트/Essay_Jiyeon Lee 2.pdf", "kind": "diagram", "pdfImage": { "page": 1, "index": 0 }, "maxWidth": 2048 },
+    { "project": "rebuilding-memory-newark", "out": "fig2-hahne-before-after.jpg", "source": "4-2(25 Fall)/뉴왁 도시 레포트/Essay_Jiyeon Lee 2.pdf", "kind": "board", "pdfImage": { "page": 2, "index": 0 }, "maxWidth": 1748, "trim": true },
+    { "project": "rebuilding-memory-newark", "out": "fig3-ironside-before-after.jpg", "source": "4-2(25 Fall)/뉴왁 도시 레포트/Essay_Jiyeon Lee 2.pdf", "kind": "board", "pdfImage": { "page": 2, "index": 1 }, "maxWidth": 1748, "trim": true },
+    { "project": "rebuilding-memory-newark", "out": "fig4-ballantine-before-after.jpg", "source": "4-2(25 Fall)/뉴왁 도시 레포트/Essay_Jiyeon Lee 2.pdf", "kind": "board", "pdfImage": { "page": 3, "index": 0 }, "maxWidth": 1748, "trim": true },
+    { "project": "rebuilding-memory-newark", "out": "fig6-morphology-2005-2025.jpg", "source": "4-2(25 Fall)/뉴왁 도시 레포트/Essay_Jiyeon Lee 2.pdf", "kind": "diagram", "pdfImage": { "page": 3, "index": 1 }, "maxWidth": 2048, "trim": true },
+    { "project": "rebuilding-memory-newark", "out": "fig7a-population-growth.jpg", "source": "4-2(25 Fall)/뉴왁 도시 레포트/Essay_Jiyeon Lee 2.pdf", "kind": "diagram", "pdfImage": { "page": 4, "index": 0 }, "maxWidth": 1220 },
+    { "project": "rebuilding-memory-newark", "out": "fig7b-population-trend.jpg", "source": "4-2(25 Fall)/뉴왁 도시 레포트/Essay_Jiyeon Lee 2.pdf", "kind": "diagram", "pdfImage": { "page": 4, "index": 1 }, "maxWidth": 1380 },
+
     { "project": "green-lighthouse-study", "out": "board-1.jpg", "source": "3-1(23 Spring)/친환경 건물 사례조사/건환시 Part 2_최종.jpg", "kind": "board", "maxWidth": 3200 },
     { "project": "green-lighthouse-study", "out": "board-2.jpg", "source": "3-1(23 Spring)/친환경 건물 사례조사/건환시 Part 2-2_최종.jpg", "kind": "board", "maxWidth": 3200 }
   ]

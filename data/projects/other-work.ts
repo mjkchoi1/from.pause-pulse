@@ -3,6 +3,7 @@ import type { Project } from "../types";
 
 const H = "/projects/seoul-family-house";
 const G = "/projects/green-lighthouse-study";
+const N = "/projects/rebuilding-memory-newark";
 
 export const seoulFamilyHouse: Project = {
   slug: "seoul-family-house",
@@ -127,22 +128,138 @@ export const newarkAdaptiveReuse: Project = {
     "Newark was once called Brick City: red kilns along the Passaic River made the factories and rowhouses that defined its skyline, and when industry collapsed those same bricks became monuments to loss.",
     "The essay reads three sites — Hahne & Co., Ironside Newark and the Ballantine Brewery — to argue that adaptive reuse in Newark is not preservation but transformation. Each project rewrites the city's identity through material texture, social agency and institutional partnership; recovery came not from imported capital but from local collaboration between universities, artists and small developers reclaiming the physical and social fabric.",
   ],
+  hero: img(
+    `${N}/fig1-reuse-sites-map.jpg`,
+    "diagram",
+    "Parcel-level land-use map of downtown Newark with ward boundaries, the redevelopment plan area hatched, and the three adaptive reuse sites — Hahne & Co., Ironside Newark and Ballantine Brewery — marked in violet along Broad Street between Broad Street Station and Newark Penn Station.",
+    "Adaptive reuse sites in downtown Newark. Author's overlay on QGIS, 2025",
+  ),
   sections: [
     {
       type: "text",
       heading: "Argument",
       body: [
         "Newark's identity was forged by both industrial production and African American culture: the brick industry gave the city its material DNA, while the Great Migration brought the cultural and political energy that made it a centre of Black Arts, jazz and civil rights activism by the 1960s.",
-        "The decline of manufacturing in the 1970s left large voids — abandoned warehouses and hollowed civic cores. The essay treats those voids as vessels for cultural resilience rather than as failures, and tests that reading against the material and institutional history of each of the three sites.",
+        "The decline of manufacturing in the 1970s left large voids — abandoned warehouses and hollowed civic cores. The essay treats those voids as vessels for cultural resilience rather than as failures, and tests that reading against the material and institutional history of three sites.",
       ],
     },
     {
+      type: "text",
+      heading: "Hahne & Co.",
+      ko: "From commerce to culture",
+      body: [
+        "Built in 1901, the Hahne & Co. Department Store represented early twentieth-century optimism in retail and urban life: a steel frame and red-brick façade, and one of the first department stores in New Jersey with open-plan interiors and large civic windows. After it closed in 1986 the building stood vacant for decades.",
+        "In 2017 Beyer Blinder Belle and L+M Development Partners, working with Rutgers University, restored it as a mixed-use cultural hub. The renovation preserved the façade while inserting new public programmes — among them Express Newark, a collaborative art space advancing the legacy of the Black Arts Movement of the 1970s.",
+      ],
+    },
+    {
+      type: "image",
+      size: "wide",
+      media: img(
+        `${N}/fig2-hahne-before-after.jpg`,
+        "board",
+        "Five-part before-and-after comparison of the Hahne & Co. building: a historic photograph of the corner elevation beside the restored brick façade today, an early postcard of the Grand Court beside the same skylit court after restoration, and the reinstated Hahne & Company signage on the brick.",
+        "Hahne & Co. before and after redevelopment. Source: Beyer Blinder Belle (2017); L+M Development Partners (2018)",
+      ),
+    },
+    {
+      type: "text",
+      heading: "Ironside Newark",
+      ko: "Industry rewired",
+      body: [
+        "A former freight warehouse, Ironside Newark (Perkins Eastman, 2018) adapts industrial geometry to the digital age. The original brick grid remains intact while glass volumes insert transparency — literally and metaphorically — into a once-closed typology.",
+        "It was developed through a tri-partnership among Rutgers University, city agencies and local developers, a model of inclusive governance that is rare in US post-industrial cities. It reveals a city learning to build again with its own institutions, not imported investors.",
+      ],
+    },
+    {
+      type: "image",
+      size: "wide",
+      media: img(
+        `${N}/fig3-ironside-before-after.jpg`,
+        "board",
+        "Six-part before-and-after study of Ironside Newark: historic photographs of the Central Graphic Arts Building and Broad Street Station warehouse, an evening render of the converted block, the retained Newark Warehouse Co. lettering, the original rail-yard plan, and the new ground-floor plan with retail areas marked in pink.",
+        "Ironside Newark before and after redevelopment. Source: Ironside Newark",
+      ),
+    },
+    {
+      type: "text",
+      heading: "Ballantine Brewery",
+      ko: "The people's memory",
+      body: [
+        "Once one of the largest breweries in America, Ballantine closed in 1972, leaving massive red-brick structures behind. In the 1990s local artists began informally reoccupying the site, converting it into studios and performance halls.",
+        "Without formal funding the project evolved organically into a community university — a living laboratory for local culture. It embodies bottom-up reuse, driven by community agency rather than market capital.",
+      ],
+    },
+    {
+      type: "image",
+      size: "wide",
+      media: img(
+        `${N}/fig4-ballantine-before-after.jpg`,
+        "board",
+        "Three-part comparison of the Ballantine Brewery: an archival sheet of the original brewery buildings, a photograph of the surviving red-brick block on its corner site, and a render of the converted building with new glazed upper floors.",
+        "Ballantine Brewery before and after redevelopment. Source: Newark business & industry",
+      ),
+    },
+    {
       type: "list",
-      heading: "Cases",
+      heading: "Comparative framework",
       rows: [
-        { label: "Hahne & Co.", value: "Department store reworked with university and retail partners" },
-        { label: "Ironside Newark", value: "Industrial warehouse converted to offices" },
-        { label: "Ballantine Brewery", value: "Brewery complex read as industrial heritage" },
+        {
+          label: "Hahne & Co.",
+          value:
+            "Department store → art and education hub · University–developer · Black Arts continuity",
+        },
+        {
+          label: "Ironside",
+          value: "Freight warehouse → office and tech · Public–private · Civic transparency",
+        },
+        {
+          label: "Ballantine",
+          value: "Brewery → artist studios · Community-led · Cultural commons",
+        },
+      ],
+    },
+    {
+      type: "text",
+      heading: "From fragments to network",
+      body: [
+        "Urban analysis of satellite imagery reveals a measurable reintensification of the downtown core: pedestrian flows, civic events and creative industries now align along Broad Street, connecting the three sites into a linear cultural corridor. The pattern suggests adaptive reuse has scaled up from isolated building projects to a citywide morphology of continuity.",
+        "Demographic data confirms the spatial recovery. Between 2010 and 2020 Newark's population grew by 12.4%, more than twice the New Jersey state average of 5.7% (U.S. Census, 2021), reversing a decline that had run since the 1930s.",
+      ],
+    },
+    {
+      type: "image",
+      size: "wide",
+      media: img(
+        `${N}/fig6-morphology-2005-2025.jpg`,
+        "diagram",
+        "Paired satellite views of downtown Newark in 2005 and 2025 with the redeveloped core shaded orange and the university district blue: the orange area expands substantially by 2025 and extends south-east along the corridor towards the Prudential Center.",
+        "Urban morphological change in downtown Newark, 2005–2025. Source: Google Earth; author's analysis, 2025",
+      ),
+    },
+    {
+      type: "pair",
+      items: [
+        img(
+          `${N}/fig7a-population-growth.jpg`,
+          "diagram",
+          "Bar chart comparing population growth from 2010 to 2020: Newark at 12.4 per cent against the New Jersey state average of 5.7 per cent.",
+          "Population growth, Newark and New Jersey, 2010–2020",
+        ),
+        img(
+          `${N}/fig7b-population-trend.jpg`,
+          "diagram",
+          "Line chart of Newark's population from 1930 to 2020: a peak above 440,000 in 1930, a long decline to roughly 270,000 by 1990, and a recovery to about 305,000 by 2020.",
+          "Newark population trend, 1930–2020. Source: U.S. Census Bureau; author's visualization, 2025",
+        ),
+      ],
+    },
+    {
+      type: "text",
+      heading: "The Newark model",
+      body: [
+        "The three projects collectively define what the essay calls the Newark Model of Adaptive Reuse, structured around three interdependent logics. Material logic: locally produced brick sustains the tactile continuity of the city. Cultural logic: Black-led creative programmes transform architecture into instruments of justice. Institutional logic: city–university–community collaborations replace extraction with stewardship.",
+        "In Newark, adaptive reuse is not nostalgia — it is authorship. The city rebuilds itself not by forgetting but by remembering differently, and the red brick, once a symbol of labour, becomes a medium of cultural dignity and continuity.",
       ],
     },
   ],

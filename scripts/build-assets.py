@@ -9,6 +9,7 @@ Usage:  python scripts/build-assets.py            (skip up-to-date files)
 Requires: pillow, pymupdf  (pip install pillow pymupdf)
 """
 
+import io
 import json
 import os
 import sys
@@ -51,18 +52,26 @@ def resolve_source(rel: str) -> str:
     raise FileNotFoundError(rel)
 
 
-def trim_border(im: Image.Image, tol: int = 8) -> Image.Image:
-    """Crop a uniform near-white border. Used where a render was exported
-    inside a presentation sheet and needs to stand on its own."""
+def trim_border(im: Image.Image, tol: int = 12) -> Image.Image:
+    """Crop a uniform border, whatever colour it is.
+
+    Used where a figure or render was laid out inside a sheet — on white in
+    the presentation boards, on black in the essay figures — and needs to
+    stand on its own on the page.
+    """
     rgb = im.convert("RGB")
     w, h = rgb.size
     px = rgb.load()
+    bg = px[0, 0]
+
+    def near_bg(p):
+        return all(abs(p[i] - bg[i]) <= tol for i in range(3))
 
     def row_blank(y):
-        return all(all(c >= 255 - tol for c in px[x, y]) for x in range(0, w, max(1, w // 200)))
+        return all(near_bg(px[x, y]) for x in range(0, w, max(1, w // 200)))
 
     def col_blank(x):
-        return all(all(c >= 255 - tol for c in px[x, y]) for y in range(0, h, max(1, h // 200)))
+        return all(near_bg(px[x, y]) for y in range(0, h, max(1, h // 200)))
 
     top = 0
     while top < h - 1 and row_blank(top):
@@ -99,6 +108,25 @@ for a in manifest["assets"]:
         # already web-optimized — byte copy
         with open(src, "rb") as s, open(dst, "wb") as d:
             d.write(s.read())
+    elif "pdfImage" in a:
+        # Pull an embedded raster straight out of a PDF page. Used for the
+        # essay figures: extracting the image avoids rendering the page
+        # header, which carries the author's student ID.
+        if fitz is None:
+            raise RuntimeError("pymupdf required for PDF assets")
+        doc = fitz.open(src)
+        page = doc[a["pdfImage"]["page"]]
+        xrefs = [x[0] for x in page.get_images(full=True)]
+        xref = xrefs[a["pdfImage"]["index"]]
+        raw = doc.extract_image(xref)
+        img = Image.open(io.BytesIO(raw["image"]))
+        if a.get("trim"):
+            img = trim_border(img)
+        w = a.get("maxWidth", 2400)
+        if img.width > w:
+            img = img.resize((w, round(img.height * w / img.width)), Image.LANCZOS)
+        save_jpeg(img, dst, a["kind"])
+        doc.close()
     elif "pdfPage" in a:
         if fitz is None:
             raise RuntimeError("pymupdf required for PDF assets")

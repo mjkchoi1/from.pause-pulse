@@ -32,7 +32,9 @@ function Caption({
 }
 
 export default function Home() {
-  const [pulse, silver, urban, wave, forest] = selectedWork;
+  // Compositions belong to positions, not to particular projects: reordering
+  // `order` in data/projects moves a project into the next composition.
+  const [first, second, third, fourth, fifth] = selectedWork;
 
   return (
     <>
@@ -56,13 +58,13 @@ export default function Home() {
 
       {/* 01 — the graduation project takes the full width of the page. */}
       <section className="mt-8 md:mt-10">
-        <HomeImage media={pulse.hero!} sizes="100vw" priority />
+        <HomeImage media={first.hero!} sizes="100vw" priority />
         <div className="page grid12 mt-4">
           <div className="col-span-12 md:col-span-5">
-            <Caption project={pulse} n={1} />
+            <Caption project={first} n={1} />
           </div>
           <p className="col-span-12 mt-4 max-w-[var(--measure)] text-[0.9375rem] leading-[1.7] text-muted md:col-span-6 md:col-start-7 md:mt-0">
-            {pulse.summary}
+            {first.summary}
           </p>
         </div>
       </section>
@@ -70,25 +72,25 @@ export default function Home() {
       {/* 02 — held back to eight columns, caption in the margin. */}
       <section className="page grid12 mt-24 md:mt-40">
         <div className="col-span-12 md:col-span-4 md:pt-2 lg:col-span-3">
-          <Caption project={silver} n={2} />
+          <Caption project={second} n={2} />
           <p className="mt-4 max-w-[var(--measure)] text-[0.9375rem] leading-[1.7] text-muted">
-            {silver.summary}
+            {second.summary}
           </p>
         </div>
         <div className="col-span-12 mt-6 md:col-span-7 md:col-start-6 md:mt-0 lg:col-span-8 lg:col-start-5">
-          <HomeImage media={silver.hero!} sizes="(min-width: 768px) 62vw, 100vw" />
+          <HomeImage media={second.hero!} sizes="(min-width: 768px) 62vw, 100vw" />
         </div>
       </section>
 
       {/* 03 — full bleed, caption beneath at the right. */}
       <section className="mt-24 md:mt-40">
-        <HomeImage media={urban.hero!} sizes="100vw" />
+        <HomeImage media={third.hero!} sizes="100vw" />
         <div className="page grid12 mt-4">
           <p className="order-2 col-span-12 mt-4 max-w-[var(--measure)] text-[0.9375rem] leading-[1.7] text-muted md:order-1 md:col-span-6 md:mt-0">
-            {urban.summary}
+            {third.summary}
           </p>
           <div className="order-1 col-span-12 md:order-2 md:col-span-4 md:col-start-9">
-            <Caption project={urban} n={3} align="end" />
+            <Caption project={third} n={3} align="end" />
           </div>
         </div>
       </section>
@@ -96,12 +98,12 @@ export default function Home() {
       {/* 04 — the square board sits left, its caption in the right margin. */}
       <section className="page grid12 mt-24 md:mt-40">
         <div className="col-span-12 md:col-span-6 lg:col-span-7">
-          <HomeImage media={wave.hero!} sizes="(min-width: 768px) 55vw, 100vw" />
+          <HomeImage media={fourth.hero!} sizes="(min-width: 768px) 55vw, 100vw" />
         </div>
         <div className="col-span-12 mt-6 self-center md:col-span-5 md:col-start-8 md:mt-0 lg:col-span-4 lg:col-start-9">
-          <Caption project={wave} n={4} />
+          <Caption project={fourth} n={4} />
           <p className="mt-4 max-w-[var(--measure)] text-[0.9375rem] leading-[1.7] text-muted">
-            {wave.summary}
+            {fourth.summary}
           </p>
         </div>
       </section>
@@ -109,13 +111,13 @@ export default function Home() {
       {/* 05 — the competition board, contained. */}
       <section className="page grid12 mt-24 md:mt-40">
         <div className="col-span-12 md:col-span-4 md:pt-2 lg:col-span-3">
-          <Caption project={forest} n={5} />
+          <Caption project={fifth} n={5} />
           <p className="mt-4 max-w-[var(--measure)] text-[0.9375rem] leading-[1.7] text-muted">
-            {forest.summary}
+            {fifth.summary}
           </p>
         </div>
         <div className="col-span-12 mt-6 md:col-span-8 md:col-start-5 md:mt-0 lg:col-span-9 lg:col-start-4">
-          <HomeImage media={forest.hero!} sizes="(min-width: 768px) 68vw, 100vw" />
+          <HomeImage media={fifth.hero!} sizes="(min-width: 768px) 68vw, 100vw" />
         </div>
       </section>
 

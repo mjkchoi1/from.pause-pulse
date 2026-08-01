@@ -60,7 +60,23 @@ for (const size of SIZES) {
         step();
       });
     });
-    // next/image optimizes on demand in dev — wait for every image to decode
+    // Loading images grow the page, so scroll again now that it is taller.
+    await page.evaluate(async () => {
+      await new Promise((r) => {
+        let y = 0;
+        const step = () => {
+          y += window.innerHeight;
+          window.scrollTo(0, y);
+          if (y < document.body.scrollHeight) setTimeout(step, 60);
+          else {
+            window.scrollTo(0, 0);
+            setTimeout(r, 300);
+          }
+        };
+        step();
+      });
+    });
+
     await page
       .waitForFunction(
         () =>
@@ -69,6 +85,14 @@ for (const size of SIZES) {
         { timeout: 120000 },
       )
       .catch(() => console.warn("  (images still pending)"));
+
+    // A full-page capture renders rows that never entered the viewport, so
+    // force the scroll-reveal state on. Capture-only; the site still animates.
+    await page.evaluate(() => {
+      document.querySelectorAll(".reveal").forEach((el) => {
+        el.setAttribute("data-shown", "true");
+      });
+    });
     await page.waitForTimeout(600);
     const slug = route === "/" ? "home" : route.replace(/\//g, "-").replace(/^-/, "");
     await page.screenshot({

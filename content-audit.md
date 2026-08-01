@@ -172,8 +172,22 @@ panels (즐1/즐2.png).
 | Course | Architecture and the City — Prof. Hyeri Park, Fall 2025, Ewha Womans University | VERIFIED |
 | Type | Research essay (6 pp., English) on adaptive reuse in Newark: Hahne & Co., Ironside Newark, Ballantine Brewery | VERIFIED |
 
-- Disposition: **RESEARCH/WRITING — Other Work section** (summary page; the PDF
-  itself contains the student ID header, so it is not published as a download)
+Figures in the essay: (1) adaptive reuse site map — author's QGIS overlay;
+(2) Hahne & Co. before/after — Beyer Blinder Belle, L+M Development Partners;
+(3) Ironside Newark before/after — Ironside Newark; (4) Ballantine before/after
+— Newark business & industry; (5) comparative typological table — author;
+(6) morphological change 2005–2025 — Google Earth base, author's analysis;
+(7) population charts — U.S. Census data, author's visualization.
+
+- Disposition: **RESEARCH/WRITING — Other Work section**, published as an
+  illustrated essay. The figures are **extracted as embedded images from the
+  PDF rather than rendered from its pages**, because every page carries a
+  header with the student ID; extraction yields the figure artwork alone at
+  native resolution. Figure 5 is vector text and is rebuilt as an HTML table
+  rather than an image. The PDF itself is not offered as a download.
+- Source credits printed in the essay are carried into the published captions.
+  Figures 2–4 and the Figure 6 base imagery are **third-party material** used
+  with attribution — see the note in the deliverables summary.
 
 ## Project 8 — Green building case study (coursework)
 

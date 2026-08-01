@@ -17,7 +17,7 @@ export const urbanVenue: Project = {
   category: "Urban design",
   location: "Gireum-dong, Seoul",
   status: "selected",
-  order: 3,
+  order: 2,
   summary:
     "A district strategy for Gireum-dong after New Town redevelopment, and a four-lobed public building where its four programmes overlap.",
   meta: [

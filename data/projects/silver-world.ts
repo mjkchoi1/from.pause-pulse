@@ -11,7 +11,7 @@ export const silverWorld: Project = {
   category: "Adaptive reuse / Senior community",
   location: "Wonju",
   status: "selected",
-  order: 2,
+  order: 3,
   summary:
     "The disused Wonju Station is reworked into a senior community: work, learning and living kept inside the structure a generation remembers.",
   meta: [
